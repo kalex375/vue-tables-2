@@ -2,6 +2,7 @@
 
 module.exports = function () {
   return {
+    actions: this.$slots.actions ? this.$slots.actions : '',
     beforeFilters: this.$slots.beforeFilters ? this.$slots.beforeFilters : '',
     afterFilters: this.$slots.afterFilters ? this.$slots.afterFilters : '',
     prependHead: this.$slots.prependHead ? this.$slots.prependHead : '',

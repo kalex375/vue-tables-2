@@ -96,7 +96,7 @@ function _default(source) {
           page = this.$refs.page.value;
         }
 
-        if (!this.opts.pagination.dropdown) this.$refs.pagination.Page = page;
+        if (!this.opts.pagination.dropdown && this.$refs.pagination) this.$refs.pagination.Page = page;
         this.commit("PAGINATE", page);
       }
     }

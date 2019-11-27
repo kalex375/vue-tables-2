@@ -59,18 +59,30 @@ module.exports = function (h, modules, classes, slots) {
   }, [slots.beforeFilter, genericFilter, slots.afterFilter]), slots.afterFilterWrapper, h("div", {
     "class": "".concat(classes.field, " ").concat(classes.inline, " ").concat(classes.right, " VueTables__limit")
   }, [slots.beforeLimit, perpage, slots.afterLimit]), dropdownPagination, columnsDropdown])]);
+  var tableTop = h("div", {
+    "class": classes.row,
+    directives: [{
+      name: "show",
+      value: shouldShowTop
+    }]
+  }, [h("div", {
+    "class": classes.column
+  }, [h("div", {
+    "class": "".concat(classes.field, " ").concat(classes.inline, " ").concat(classes.left, " VueTables__search")
+  }, [slots.beforeFilter, genericFilter, slots.afterFilter]), dropdownPagination, columnsDropdown])]);
   return h("div", {
     "class": "VueTables VueTables--" + this.source
   }, [tableTop, slots.beforeTable, h("div", {
     "class": "table-responsive"
   }, [h("table", {
-    "class": "VueTables__table ".concat(this.opts.skin ? this.opts.skin : classes.table),
-    attrs: {
-      summary: this.opts.summary
-    }
-  }, [caption, h("thead", [slots.prependHead, h("tr", [modules.headings(classes.right)]), slots.beforeFilters, modules.columnFilters(classes), slots.afterFilters]), footerHeadings, slots.beforeBody, h("tbody", [slots.prependBody, modules.rows(classes), slots.appendBody]), slots.afterBody])]), slots.afterTable, modules.pagination((0, _merge["default"])(classes.pagination, {
-    wrapper: "".concat(classes.row, " ").concat(classes.column, " ").concat(classes.contentCenter),
+    "class": "VueTables__table ".concat(this.opts.skin ? this.opts.skin : classes.table)
+  }, [h("thead", [h("tr", [modules.headings(classes.right)]), slots.beforeFilters, modules.columnFilters(classes), slots.afterFilters]), footerHeadings, slots.beforeBody, h("tbody", [slots.prependBody, modules.rows(classes), slots.appendBody]), slots.afterBody])]), slots.afterTable, h("div", {
+    "class": "VueTables__footer"
+  }, [modules.pagination((0, _merge["default"])(classes.pagination, {
+    wrapper: "".concat(classes.row, " ").concat(classes.contentCenter),
     nav: classes.center,
     count: "".concat(classes.center, " ").concat(classes.column)
-  })), modules.dropdownPaginationCount()]);
+  })), modules.dropdownPaginationCount(), h("div", {
+    "class": "".concat(classes.field, " ").concat(classes.inline, " VueTables__limit")
+  }, [slots.beforeLimit, perpage, slots.afterLimit])])]);
 };

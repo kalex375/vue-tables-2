@@ -56,7 +56,7 @@ function search(that, query) {
   } else {
     that.initPagination();
 
-    if (that.opts.pagination.dropdown) {
+    if (that.opts.pagination.dropdown || !that.$refs.pagination) {
       that.getData();
     }
   }

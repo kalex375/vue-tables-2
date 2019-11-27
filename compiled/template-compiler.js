@@ -10,7 +10,8 @@ module.exports = function (template, theme) {
   };
   var templates = {
     "default": require('./templates/default'),
-    footerPagination: require('./templates/footer-pagination')
+    footerPagination: require('./templates/footer-pagination'),
+    headerPagination: require('./templates/header-pagination')
   };
   return function (h) {
     var modules = {
@@ -20,6 +21,7 @@ module.exports = function (template, theme) {
       dropdownPaginationCount: require('./modules/dropdown-pagination-count').call(this, h),
       columnFilters: require('./modules/column-filters').call(this, h),
       pagination: require('./modules/pagination').call(this, h),
+      paginationTop: require('./modules/pagination-top').call(this, h),
       headings: require('./modules/headings').call(this, h),
       perPage: require('./modules/per-page').call(this, h),
       columnsDropdown: require('./modules/columns-dropdown').call(this, h)

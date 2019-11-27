@@ -136,9 +136,10 @@ module.exports = function (h) {
       }, {
         "class": "VueTables__row ".concat(rowClass),
         on: {
-          "click": _this.rowWasClicked.bind(_this, row, index)
+          "click": _this.rowWasClicked.bind(_this, row, index),
+          "contextmenu": _this.rowContextmenu.bind(_this, row, index)
         }
-      }]), [columns, " "]));
+      }]), [columns]));
       rows.push(_this.hasChildRow && _this.openChildRows.includes(row[rowKey]) ? h("tr", {
         "class": "VueTables__child-row ".concat(rowClass)
       }, [h("td", {
